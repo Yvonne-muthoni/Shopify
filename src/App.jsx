@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
-import Registeration from './components/Registeration';
+import Registration from './components/Registration';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 
@@ -11,10 +11,10 @@ function App() {
       <div>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/registeration" element={<Registeration />} />
+          <Route path="/registration" element={<Registration />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-          <Route path="/" element={<Register />} />
+          <Route path="/" element={<Registration />} />
         </Routes>
       </div>
     </Router>
