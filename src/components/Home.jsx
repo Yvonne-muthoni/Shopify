@@ -6,32 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 const Home = () => {
   return (
     <Container>
-      <Carousel id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-        <CarouselIndicators className="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </CarouselIndicators>
-        <CarouselInner className="carousel-inner">
-          <CarouselItem className="carousel-item active">
-            <img src="https://www.theplunge.com/wp-content/uploads/2019/10/Vacheron-Constantin-1024x683.jpg" className="d-block w-100" alt="Slide 1" />
-          </CarouselItem>
-          <CarouselItem className="carousel-item">
-            <img src="https://www.hamiltonwatch.com/media/wysiwyg/picture-2.jpg" className="d-block w-100" alt="Slide 2" />
-          </CarouselItem>
-          <CarouselItem className="carousel-item">
-            <img src="https://elitetraveler.com/wp-content/uploads/sites/8/2023/07/CreditAlainCostam126506-0001_2301ac_002_cmjn1-min1.jpg" className="d-block w-100" alt="Slide 3" />
-          </CarouselItem>
-        </CarouselInner>
-        <CarouselControlPrev className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Previous</span>
-        </CarouselControlPrev>
-        <CarouselControlNext className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-          <span className="visually-hidden">Next</span>
-        </CarouselControlNext>
-      </Carousel>
+    
       
       <HeroSection>
         <HeroText>
@@ -45,7 +20,7 @@ const Home = () => {
       </HeroSection>
       
       <ProductShowcase>
-        <h2>Featured Products</h2>
+        <h2>FEATURED</h2>
         <ProductGrid>
           <ProductCard>
             <ProductImage src="https://www.watchgecko.com/cdn/shop/articles/Breguet-Classique-Extra-Plate-5157-6-2_1100x.jpg?v=1654779382" alt="Product 1" />
@@ -123,39 +98,10 @@ const Container = styled.div`
   font-family: Arial, sans-serif;
 `;
 
-const Carousel = styled.div`
-  height: 400px; /* Set the desired height */
-  position: relative;
-`;
 
-const CarouselIndicators = styled.div`
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-`;
 
-const CarouselInner = styled.div`
-  height: 100%;
-`;
 
-const CarouselItem = styled.div`
-  height: 100%;
-`;
 
-const CarouselControlPrev = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-`;
-
-const CarouselControlNext = styled.button`
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-`;
 
 const HeroSection = styled.div`
   position: relative;
