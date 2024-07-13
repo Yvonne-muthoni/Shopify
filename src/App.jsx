@@ -1,11 +1,16 @@
-import React from 'react'
+import { BrowserRouter, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Profile from "./components/Profile";
+
+
 
 function App() {
   return (
-    <div>
-      <h1>Shopify</h1>
-    </div>
-  )
+    <BrowserRouter>
+      <Navbar />
+      <Profile />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
