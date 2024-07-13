@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
-    <div>
-      <h1>Shopify</h1>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/checkout" />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
