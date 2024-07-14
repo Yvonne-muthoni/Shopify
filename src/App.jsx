@@ -1,23 +1,19 @@
-
-import Products from './components/Products'
-import Orders from './components/Orders'
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import Products from './components/Products';
+import Orders from './components/Orders';
+import Login from './components/Login';
+import Register from './components/Register';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 
 function App() {
   return (
     <Router>
       <div>
-
         <Routes>
           <Route path="/products" element={<Products />} />
           <Route path="/orders" element={<Orders />} />
-        
-        </Routes>
-      </div>
-    </Router>
-  )
-        <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
