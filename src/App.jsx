@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -5,6 +6,13 @@ import ProductDetail from './components/ProductDetail';
 import ShoppingCart from './components/ShoppingCart';
 import RelatedProducts from './components/RelatedProducts';
 import Home from './components/home'; // Import the Home component
+
+
+import Products from './components/Products'
+import Orders from './components/Orders'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -37,6 +45,7 @@ function App() {
   return (
     <Router>
       <div>
+
         <header className="border-gray-200 pb-4 mb-8">
           <h1 className="text-3xl font-bold text-center text-gray-800">CHECKOUT</h1>
           <nav className="flex justify-center space-x-4">
@@ -60,6 +69,23 @@ function App() {
               </div>
             } 
           />
+
+
+        <Routes>
+          <Route path="/products" element={<Products />} />
+          <Route path="/orders" element={<Orders />} />
+        
+        </Routes>
+      </div>
+    </Router>
+  )
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/" element={<Register />} />
+
         </Routes>
       </div>
     </Router>
