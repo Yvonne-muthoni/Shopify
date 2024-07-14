@@ -1,4 +1,10 @@
 
+
+import { BrowserRouter, Route} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Profile from "./components/Profile";
+
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -6,6 +12,7 @@ import ProductDetail from './components/ProductDetail';
 import ShoppingCart from './components/ShoppingCart';
 import RelatedProducts from './components/RelatedProducts';
 import Home from './components/home'; // Import the Home component
+
 
 
 import Products from './components/Products'
@@ -43,6 +50,16 @@ function App() {
   };
 
   return (
+
+    <BrowserRouter>
+      <Navbar />
+      <Profile />
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
     <Router>
       <div>
 
@@ -93,3 +110,4 @@ function App() {
 }
 
 export default App;
+
