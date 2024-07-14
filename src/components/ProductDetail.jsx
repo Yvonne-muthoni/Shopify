@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-import { HeartIcon } from '@heroicons/react/24/outline'
+import React, { useState } from 'react';
+import { HeartIcon } from '@heroicons/react/24/outline';
 
-function ProductDetail({ addToCart }) {
+function ProductDetail({ addToCart, removeFromCart }) {
   const [selectedColor, setSelectedColor] = useState('red');
   const colors = ['red', 'gray', 'yellow'];
 
   const handleAddToCart = () => {
     addToCart({ name: "Herschel Supply Co. Heritage", price: 59.99 });
+  };
+
+  const handleRemoveFromCart = () => {
+    removeFromCart("Herschel Supply Co. Heritage");
   };
 
   return (
@@ -35,6 +39,7 @@ function ProductDetail({ addToCart }) {
           </div>
           <div className="flex gap-4">
             <button onClick={handleAddToCart} className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">ADD TO CART</button>
+            <button onClick={handleRemoveFromCart} className="flex-1 bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300 ease-in-out transform hover:scale-105">REMOVE FROM CART</button>
             <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105">
               <HeartIcon className="w-6 h-6 text-gray-600" />
             </button>
@@ -58,7 +63,7 @@ function ProductDetail({ addToCart }) {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default ProductDetail
+export default ProductDetail;
