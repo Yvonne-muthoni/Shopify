@@ -8,13 +8,20 @@ const Home = () => {
     <Container>
       <HeroSection>
         <HeroText>
-          <h1>Welcome to Our Store</h1>
-          <p>Find the best products at unbeatable prices.</p>
-          <ShopButton>
+          <h1>Welcome to Shopify</h1>
+
+
+          
+
+          <p>~~~~</p>
+
+          <p id='unique'>#1 <span id="unique2">Trending</span> in 🇰🇪</p>
+          <StyledShopButton>
             <FaShoppingCart /> Shop Now
-          </ShopButton>
+          </StyledShopButton>
+
         </HeroText>
-        <HeroImage src="https://cdn.prod.website-files.com/635a76dc72a1554a18e33d3d/63f62f2d63501a20978b56de_63c525d81c217825ecd91b15_60-best-fashion-e-commerce-sites.jpeg" alt="Hero" />
+        <HeroImage src="https://plus.unsplash.com/premium_photo-1683121246270-0bdc3a34b324?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero" />
       </HeroSection>
 
       <ProductShowcase>
@@ -153,19 +160,81 @@ const HeroText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+    font-family: 'Playwrite CU', sans-serif;
+     h1 {
+    font-size: 5rem; 
+    font-weight :bold;
+  }
+
+  #unique{
+    font-weight :bold;
+    font-family:'Dancing Script',Playwrite CU;
+    font-size: 3rem;
+  }
+    #unique2{
+    font-weight :bold;
+    color:red;
+    font-size:3rem;
 `;
 
-const ShopButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
+
+// const ShopButton = styled.button`
+//   background-color: #007bff;
+//   color: white;
+//   border: none;
+//   padding: 10px 20px;
+//   font-size: 18px;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+// `;
+const StyledShopButton = styled.button`
   cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+background: linear-gradient(45deg, #ffcccb, #ff1493);
+
+ 
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 10px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    transform: scale(0);
+    z-index: -1;
+    background-color: rgb(193, 163, 98);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  &:hover::before {
+    transform: scale(3);
+  }
+
+  &:hover {
+    color: #ffd1dc;
+    transform: scale(1.1);
+    box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 `;
+
 
 const HeroImage = styled.img`
   width: 100%;
