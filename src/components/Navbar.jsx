@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faShoppingCart, faBoxOpen, faClipboardList, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faShoppingCart, faBoxOpen, faClipboardList, faSignInAlt, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import '@fontsource/roboto';
 
 const Navbar = ({ user, onLogout }) => {
@@ -10,6 +10,10 @@ const Navbar = ({ user, onLogout }) => {
 
   const handleHomeClick = () => {
     navigate('/');
+  };
+
+  const handleCartClick = () => {
+    navigate('/cart');
   };
 
   const handleCheckoutClick = () => {
@@ -47,9 +51,13 @@ const Navbar = ({ user, onLogout }) => {
           <FontAwesomeIcon icon={faHome} className="mr-1" />
           Home
         </button>
-        <button onClick={handleCheckoutClick} className="text-white hover:text-gray-300 flex items-center">
+        <button onClick={handleCartClick} className="text-white hover:text-gray-300 flex items-center">
           <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
           Cart
+        </button>
+        <button onClick={handleCheckoutClick} className="text-white hover:text-gray-300 flex items-center">
+          <FontAwesomeIcon icon={faCreditCard} className="mr-1" />
+          Checkout
         </button>
         <Link to="/products" className="text-white hover:text-gray-300 flex items-center">
           <FontAwesomeIcon icon={faBoxOpen} className="mr-1" />
@@ -62,11 +70,12 @@ const Navbar = ({ user, onLogout }) => {
         {user ? (
           <div className="relative">
             <button onClick={toggleDropdown} className="text-white hover:text-gray-300 flex items-center">
-              {user.username || user.email}
+              <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
+              {user.email}
             </button>
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-md">
-                <button onClick={handleLogout} className="block w-full px-4 py-2 text-left">
+              <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                <button onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                   Logout
                 </button>
               </div>
@@ -75,12 +84,12 @@ const Navbar = ({ user, onLogout }) => {
         ) : (
           <Link to="/login" className="text-white hover:text-gray-300 flex items-center">
             <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
-            LogIn
+            Login
           </Link>
         )}
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

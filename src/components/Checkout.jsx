@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Checkout = () => {
@@ -7,6 +8,9 @@ const Checkout = () => {
     billing: { name: '', address: '', city: '', state: '', zip: '' },
     payment: { cardNumber: '', expiration: '', cvv: '' },
   });
+  const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (section, field, value) => {
     setFormData({
@@ -20,8 +24,14 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+    
     console.log(formData);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    navigate('/');
   };
 
   return (
@@ -145,6 +155,15 @@ const Checkout = () => {
         </OrderSummary>
         <Button type="submit">Place Order</Button>
       </Form>
+      {showModal && (
+        <Modal>
+          <ModalContent>
+            <h2>Order Confirmation</h2>
+            <p>Order placed and will be delivered in a period of 3-6 days.</p>
+            <CloseButton onClick={handleCloseModal}>Close</CloseButton>
+          </ModalContent>
+        </Modal>
+      )}
     </Container>
   );
 };
@@ -209,6 +228,40 @@ const OrderSummary = styled.div`
 
 const Button = styled.button`
   padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const Modal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalContent = styled.div`
+  background-color: #ffc0cb; /* baby pink background */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+`;
+
+const CloseButton = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;

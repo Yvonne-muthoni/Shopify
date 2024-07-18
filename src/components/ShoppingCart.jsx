@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 function ShoppingCart({ cart }) {
   const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
   const shipping = 0;
@@ -28,7 +31,11 @@ function ShoppingCart({ cart }) {
         <span className="text-gray-800">Total</span>
         <span className="text-gray-800">${total.toFixed(2)}</span>
       </div>
-      <button className="w-full bg-teal-500 text-white px-6 py-4 rounded-lg font-semibold mt-8 hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105">CHECKOUT</button>
+      <Link to="/checkout">
+        <button className="w-full bg-teal-500 text-white px-6 py-4 rounded-lg font-semibold mt-8 hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105">
+          CHECKOUT
+        </button>
+      </Link>
     </div>
   );
 }

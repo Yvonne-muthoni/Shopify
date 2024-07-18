@@ -11,6 +11,7 @@ import ProductDetail from './components/ProductDetail';
 import ShoppingCart from './components/ShoppingCart';
 import RelatedProducts from './components/RelatedProducts';
 import Home from './components/home';
+import Checkout from './components/Checkout';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -59,7 +60,14 @@ function App() {
         <Navbar user={user} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/checkout" element={
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/register" element={<Register onRegister={handleRegister} />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/cart" element={
             <div className="flex flex-col lg:flex-row gap-12">
               <div className="lg:w-2/3">
                 <ProductDetail addToCart={addToCart} removeFromCart={removeFromCart} />
@@ -70,12 +78,6 @@ function App() {
               </div>
             </div>
           } />
-          <Route path="/products" element={<Products />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/register" element={<Register onRegister={handleRegister} />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
