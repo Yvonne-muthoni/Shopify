@@ -26,7 +26,7 @@ function ProductDetail({ addToCart, removeFromCart }) {
           </div>
         </div>
         <div className="md:w-1/2">
-          <p className="text-4xl font-bold mb-8 text-gray-800">$59.99</p>
+          <p className="text-4xl font-bold mb-8 text-gray-800">$109.99</p>
           <div className="flex gap-4 mb-8">
             {colors.map((color) => (
               <button
