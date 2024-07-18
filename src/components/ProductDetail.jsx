@@ -46,7 +46,7 @@ function ProductDetail({ addToCart, removeFromCart }) {
                                     <td>
                                         <img src={img1} alt="Product" className="w-32 h-32 object-cover" />
                                         </td>
-                                    <td>Samsung Laptop</td>
+                                    <td>Apple Laptop</td>
                                     <td>1</td>
                                     <td>$3589</td>
                                 </tr>
