@@ -9,8 +9,7 @@ const ForgotPassword= () => {
     e.preventDefault();
     console.log('Password reset email sent to:', email);
     
-    // Simulate sending reset link and then navigate to reset password page
-    const token = 'dummyToken'; // Replace this with the actual token from your backend response
+    const token = 'dummyToken';
     navigate(`/reset-password/${token}`);
   };
  
