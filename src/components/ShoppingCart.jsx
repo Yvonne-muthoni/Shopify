@@ -1,5 +1,3 @@
-
-
 function ShoppingCart({ cart }) {
   const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
   const shipping = 0;
