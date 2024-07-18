@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link,Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Products from './components/Products';
 import Orders from './components/Orders';
 import Login from './components/Login';
@@ -7,16 +7,22 @@ import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import Navbar from './components/Navbar';
-
 import ProductDetail from './components/ProductDetail';
 import ShoppingCart from './components/ShoppingCart';
 import RelatedProducts from './components/RelatedProducts';
-import Home from './components/home'; // Make sure this file exists
-
+import Home from './components/home';
 
 function App() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -31,15 +37,26 @@ function App() {
     }
   };
 
+  const handleLogin = (email) => {
+    const user = { email };
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser(user);
+  };
+
+  const handleRegister = (newUser) => {
+    localStorage.setItem('user', JSON.stringify(newUser));
+    setUser(newUser);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+  };
+
   return (
     <Router>
       <div>
-        
-           
-         
-      
-        <Navbar />
-     
+        <Navbar user={user} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={
@@ -55,12 +72,11 @@ function App() {
           } />
           <Route path="/products" element={<Products />} />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/register" element={<Register onRegister={handleRegister} />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-          
-          
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </Router>

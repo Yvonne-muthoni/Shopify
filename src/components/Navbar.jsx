@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faShoppingCart, faBoxOpen, faClipboardList, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
-import '@fontsource/roboto'; 
+import '@fontsource/roboto';
 
-const NavBar = () => {
+const Navbar = ({ user, onLogout }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
@@ -13,6 +14,15 @@ const NavBar = () => {
 
   const handleCheckoutClick = () => {
     navigate('/checkout');
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleLogout = () => {
+    onLogout();
+    setDropdownOpen(false);
   };
 
   return (
@@ -25,10 +35,8 @@ const NavBar = () => {
       alignItems: 'center',
       padding: '4.75px 10.5px',
       zIndex: '1',
-      
-       
-      backdropFilter: 'blur(10px)',  // Apply backdrop filter for blur effect
-      backgroundImage: 'linear-gradient(to bottom, rgba(231, 236, 239, 0), rgba(231, 236, 239, 1))'  // Apply linear gradient background
+      backdropFilter: 'blur(10px)',  
+      backgroundImage: 'linear-gradient(to bottom, rgba(231, 236, 239, 0), rgba(231, 236, 239, 1))' 
     }} className="p-4">
       <div className="text-white font-bold text-xl" style={{ fontFamily: 'Roboto, sans-serif' }}>
         <FontAwesomeIcon icon={faBoxOpen} className="mr-2" />
@@ -51,13 +59,28 @@ const NavBar = () => {
           <FontAwesomeIcon icon={faClipboardList} className="mr-1" />
           Orders
         </Link>
-        <Link to="/login" className="text-white hover:text-gray-300 flex items-center">
-          <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
-          LogIn
-        </Link>
+        {user ? (
+          <div className="relative">
+            <button onClick={toggleDropdown} className="text-white hover:text-gray-300 flex items-center">
+              {user.username || user.email}
+            </button>
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-md">
+                <button onClick={handleLogout} className="block w-full px-4 py-2 text-left">
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link to="/login" className="text-white hover:text-gray-300 flex items-center">
+            <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
+            LogIn
+          </Link>
+        )}
       </div>
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
