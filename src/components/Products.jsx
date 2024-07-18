@@ -12,22 +12,21 @@ const products = [
     { id: 2, name: "Apple Tablet", price: 1599, rating: 5.0, img: img2 },
     { id: 3, name: "Apple Phone", price: 1099, rating: 5.0, img: img3 },
     { id: 4, name: "Apple Watch", price: 599, rating: 5.0, img: img4 },
-    { id: 5, name: "Samsung Laptop", price: 2599, rating: 5.0, img: img5 },
-    { id: 6, name: "Samsung Tablet", price: 1299, rating: 5.0, img: img6 },
-    { id: 7, name: "Samsung Phone", price: 3099, rating: 5.0, img: img7 },
-    { id: 8, name: "Samsung Watch", price: 1599, rating: 5.0, img: img8 },
-
+    { id: 5, name: "Samsung Laptop", price: 3099, rating: 5.0, img: img5 },
+    { id: 6, name: "Samsung Tablet", price: 2599, rating: 5.0, img: img6 },
+    { id: 7, name: "Samsung Phone", price: 1599, rating: 5.0, img: img7 },
+    { id: 8, name: "Samsung Watch", price: 1299, rating: 5.0, img: img8 },
 ];
 
-function Products() {
+function Products({ addToCart }) {
     return (
         <>
             <h1 className='text-3xl text-center mt-20'>Products Available</h1>
-            <div className='flex py-32 flex-wrap justify-center'>
+            <div className='flex py-20 flex-wrap justify-center'>
                 {products.map(product => (
                     <div key={product.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-5">
                         <a href="#">
-                            <img className="p-10 rounded-t-lg" src={product.img} alt={`${product.name} image`} />
+                            <img className="p-10 rounded-t-lg w-full h-64 object-cover" src={product.img} alt={`${product.name} image`} />
                         </a>
                         <div className="px-5 pb-5">
                             <a href="#">
@@ -43,7 +42,7 @@ function Products() {
                             </div>
                             <div className="flex items-center justify-between">
                                 <span className="text-3xl font-bold text-gray-900 dark:text-white">${product.price}</span>
-                                <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                                <button onClick={() => addToCart(product)} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
                             </div>
                         </div>
                     </div>
