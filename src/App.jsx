@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import ProductDetail from './components/ProductDetail';
 import ShoppingCart from './components/ShoppingCart';
 import RelatedProducts from './components/RelatedProducts';
-import Home from './components/home'; // Make sure this file exists
+import Home from './components/home'; 
 
 
 function App() {
@@ -34,12 +34,8 @@ function App() {
   return (
     <Router>
       <div>
-        
-           
-         
       
-        <Navbar />
-     
+        <Navbar /> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={

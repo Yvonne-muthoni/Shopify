@@ -1,69 +1,82 @@
-import React, { useState } from 'react';
-import { HeartIcon } from '@heroicons/react/24/outline';
+import img1 from '../Images/Image1.jpg';
+import img2 from '../Images/Image2.jpg';
+import img3 from '../Images/Image3.jpeg';
+import img4 from '../Images/Image4.jpg';
+import img5 from '../Images/Image5.jpeg';
+import img6 from '../Images/Image6.jpg';
+import img7 from '../Images/Image7.jpeg';
+import img8 from '../Images/Images8.jpeg';
+
+const products = [
+    { id: 1, name: "Apple Laptop", price: 2099, rating: 5.0, img: img1 },
+    { id: 2, name: "Apple Tablet", price: 1599, rating: 5.0, img: img2 },
+    { id: 3, name: "Apple Phone", price: 1099, rating: 5.0, img: img3 },
+    { id: 4, name: "Apple Watch", price: 599, rating: 5.0, img: img4 },
+    { id: 5, name: "Samsung Laptop", price: 3099, rating: 5.0, img: img5 },
+    { id: 6, name: "Samsung Tablet", price: 2599, rating: 5.0, img: img6 },
+    { id: 7, name: "Samsung Phone", price: 1599, rating: 5.0, img: img7 },
+    { id: 8, name: "Samsung Watch", price: 1299, rating: 5.0, img: img8 },
+];
 
 function ProductDetail({ addToCart, removeFromCart }) {
-  const [selectedColor, setSelectedColor] = useState('red');
-  const colors = ['red', 'gray', 'yellow'];
+    const handleAddToCart = () => {
+        addToCart({ name: "Shopify Supply Co. Heritage", price: 59.99 });
+    };
 
-  const handleAddToCart = () => {
-    addToCart({ name: "Herschel Supply Co. Heritage", price: 59.99 });
-  };
+    const handleRemoveFromCart = () => {
+        removeFromCart("Shopify Supply Co. Heritage");
+    };
 
-  const handleRemoveFromCart = () => {
-    removeFromCart("Herschel Supply Co. Heritage");
-  };
-
-  return (
-    <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-      <h2 className="text-2xl font-semibold mb-8 text-gray-800">Herschel Supply Co. Heritage</h2>
-      <div className="flex flex-col md:flex-row gap-12">
-        <div className="md:w-1/2">
-          <img src="https://example.com/backpack-image.jpg" alt="Herschel Backpack" className="w-full rounded-lg shadow-md mb-4" />
-          <div className="flex justify-center gap-4">
-            {[1, 2, 3].map((i) => (
-              <img key={i} src={`https://example.com/backpack-thumb-${i}.jpg`} alt={`Thumbnail ${i}`} className="w-20 h-20 object-cover rounded-md shadow-sm cursor-pointer hover:opacity-75 transition" />
-            ))}
-          </div>
+    return (
+        <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+            <div className="flex flex-col md:flex-row gap-12">
+                <div className="md:w-1/2">
+                <div className='cart'>
+                    <table>
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src={img1} alt="Product" className="w-32 h-32 object-cover" />
+                                        </td>
+                                    <td>Samsung Laptop</td>
+                                    <td>1</td>
+                                    <td>$3099</td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+                    <div className="flex gap-4">
+                        <button onClick={handleAddToCart} className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">ADD TO CART</button>
+                        <button onClick={handleRemoveFromCart} className="flex-1 bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300 ease-in-out transform hover:scale-105">REMOVE FROM CART</button>
+                    </div>
+                </div>
+            </div>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                    { title: "BRAND", items: ["Shopify Supply Co."] },
+                    { title: "MATERIAL", items: ["Plastics and Polymers", "Semiconductors"] }
+                ].map((section, index) => (
+                    <div key={index}>
+                        <h3 className="font-semibold mb-3 text-gray-700">{section.title}</h3>
+                        <ul className="list-disc list-inside text-gray-600 space-y-1">
+                            {section.items.map((item, i) => (
+                                <li key={i}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </div>
-        <div className="md:w-1/2">
-          <p className="text-4xl font-bold mb-8 text-gray-800">$59.99</p>
-          <div className="flex gap-4 mb-8">
-            {colors.map((color) => (
-              <button
-                key={color}
-                className={`w-10 h-10 rounded-full transition duration-300 ease-in-out transform hover:scale-110 ${color === selectedColor ? 'ring-2 ring-offset-2 ring-blue-500' : ''}`}
-                style={{ backgroundColor: color }}
-                onClick={() => setSelectedColor(color)}
-              />
-            ))}
-          </div>
-          <div className="flex gap-4">
-            <button onClick={handleAddToCart} className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105">ADD TO CART</button>
-            <button onClick={handleRemoveFromCart} className="flex-1 bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300 ease-in-out transform hover:scale-105">REMOVE FROM CART</button>
-            <button className="p-3 border border-gray-300 rounded-lg hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105">
-              <HeartIcon className="w-6 h-6 text-gray-600" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { title: "PRODUCT DETAIL", items: ["Cotton canvas", "Leather trim", "Height: 16 in", "Adjustable padded straps"] },
-          { title: "BRAND", items: ["Herschel Supply Co."] },
-          { title: "MATERIAL", items: ["Canvas: 100% Polyester", "Main: 100% Polyester"] }
-        ].map((section, index) => (
-          <div key={index}>
-            <h3 className="font-semibold mb-3 text-gray-700">{section.title}</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-              {section.items.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    );
 }
 
-export default ProductDetail;
+export default ProductDetail
+

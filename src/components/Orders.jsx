@@ -13,9 +13,9 @@ const initialOrders = [
     { id: 2, name: "Apple Tablet", price: 1599, rating: 5.0, img: img2 },
     { id: 3, name: "Apple Phone", price: 1099, rating: 5.0, img: img3 },
     { id: 4, name: "Apple Watch", price: 599, rating: 5.0, img: img4 },
-    { id: 5, name: "Samsung Laptop", price: 2599, rating: 5.0, img: img5 },
+    { id: 5, name: "Samsung Laptop", price: 3099, rating: 5.0, img: img5 },
     { id: 6, name: "Samsung Tablet", price: 1299, rating: 5.0, img: img6 },
-    { id: 7, name: "Samsung Phone", price: 3099, rating: 5.0, img: img7 },
+    { id: 7, name: "Samsung Phone", price: 2599, rating: 5.0, img: img7 },
     { id: 8, name: "Samsung Watch", price: 1599, rating: 5.0, img: img8 }
 ];
 
@@ -43,7 +43,7 @@ function Orders() {
                             </tr>
                         </thead>
                         <tbody>
-                            {orders.map(order => (
+                            {/* {orders.map(order => (
                                 <tr key={order.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <td className="p-4">
                                         <img src={order.img} className="w-16 md:w-32 max-w-full max-h-full" alt={order.name} />
@@ -54,7 +54,7 @@ function Orders() {
                                         <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={() => handleRemove(order.id)}>Remove</a>
                                     </td>
                                 </tr>
-                            ))}
+                            ))} */}
                         </tbody>
                     </table>
                 </div>

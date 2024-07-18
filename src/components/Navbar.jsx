@@ -26,13 +26,12 @@ const NavBar = () => {
       padding: '4.75px 10.5px',
       zIndex: '1',
       
-       
       backdropFilter: 'blur(10px)',  // Apply backdrop filter for blur effect
       backgroundImage: 'linear-gradient(to bottom, rgba(231, 236, 239, 0), rgba(231, 236, 239, 1))'  // Apply linear gradient background
     }} className="p-4">
       <div className="text-white font-bold text-xl" style={{ fontFamily: 'Roboto, sans-serif' }}>
         <FontAwesomeIcon icon={faBoxOpen} className="mr-2" />
-        E-Com
+        Shopify
       </div>
       <div className="flex items-center space-x-6">
         <button onClick={handleHomeClick} className="text-white hover:text-gray-300 flex items-center">

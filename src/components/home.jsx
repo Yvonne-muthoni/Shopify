@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import { FaShoppingCart } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import img1 from '../Images/Image1.jpg';
+import img4 from '../Images/Image4.jpg';
+import img5 from '../Images/Image5.jpeg';
+import img8 from '../Images/Images8.jpeg';
+
 
 const Home = () => {
   return (
@@ -9,10 +14,6 @@ const Home = () => {
       <HeroSection>
         <HeroText>
           <h1>Welcome to Shopify</h1>
-
-
-          
-
           <p>~~~~</p>
 
           <p id='unique'>#1 <span id="unique2">Trending</span> in 🇰🇪</p>
@@ -25,105 +26,50 @@ const Home = () => {
       </HeroSection>
 
       <ProductShowcase>
-        <h2>FEATURED PRODUCTS</h2>
+        <h2 className='text-3xl text-center mt-20 mb-10'>FEATURED PRODUCTS</h2>
         <ProductGrid>
           <ProductCard>
-            <ProductImage src="https://www.watchgecko.com/cdn/shop/articles/Breguet-Classique-Extra-Plate-5157-6-2_1100x.jpg?v=1654779382" alt="Product 1" />
+            <ProductImage src={img1} alt="Apple Laptop" />
             <ProductDetails>
-              <h3>Product 1</h3>
-              <p>200.00 Ksh</p>
+              <h3>Apple Laptop</h3>
+              <p>$2099</p>
               <Description>
-                A high-quality product that meets all your needs and exceeds expectations.
+                Best of All Apple Laptops in the Market.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
-              <Rating>
-                <input type="radio" id="star-1" name="star-radio" value="star-1" />
-                <label htmlFor="star-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-2" name="star-radio" value="star-1" />
-                <label htmlFor="star-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-3" name="star-radio" value="star-1" />
-                <label htmlFor="star-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-4" name="star-radio" value="star-1" />
-                <label htmlFor="star-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-5" name="star-radio" value="star-1" />
-                <label htmlFor="star-5">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-              </Rating>
             </ProductDetails>
           </ProductCard>
           <ProductCard>
-            <ProductImage src="https://via.placeholder.com/200" alt="Product 2" />
+            <ProductImage src={img4} alt="Apple Watch" />
             <ProductDetails>
-              <h3>Product 2</h3>
-              <p>300.00 Ksh</p>
+              <h3>Apple Watch</h3>
+              <p>$599</p>
               <Description>
-                Enjoy the best performance and style with this amazing product.
+                Best of All Apple Watches in the Market.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
-              <Rating>
-                <input type="radio" id="star-1-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-1-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-2-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-2-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-3-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-3-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-4-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-4-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-5-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-5-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-              </Rating>
             </ProductDetails>
           </ProductCard>
           <ProductCard>
-            <ProductImage src="https://via.placeholder.com/200" alt="Product 2" />
+            <ProductImage src={img5} alt="Samsung Laptop" />
             <ProductDetails>
-              <h3>Product 2</h3>
-              <p>300.00 Ksh</p>
+              <h3>Samsung Laptop</h3>
+              <p>$3099</p>
               <Description>
-                Enjoy the best performance and style with this amazing product.
+                Best of All Samsung Laptop in the Market.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
-              <Rating>
-                <input type="radio" id="star-1-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-1-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-2-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-2-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-3-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-3-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-4-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-4-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-                <input type="radio" id="star-5-2" name="star-radio-2" value="star-1" />
-                <label htmlFor="star-5-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
-                </label>
-              </Rating>
+            </ProductDetails>
+          </ProductCard>
+          <ProductCard>
+            <ProductImage src={img8} alt="Samsung Watch" />
+            <ProductDetails>
+              <h3>Samsung Watch</h3>
+              <p>1299</p>
+              <Description>
+              Best of All Samsung Watches in the Market.
+                <CartIcon><FaShoppingCart /></CartIcon>
+              </Description>
             </ProductDetails>
           </ProductCard>
         </ProductGrid>
@@ -160,8 +106,8 @@ const HeroText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-    font-family: 'Playwrite CU', sans-serif;
-     h1 {
+  font-family: 'Playwrite CU', sans-serif;
+  h1 {
     font-size: 5rem; 
     font-weight :bold;
   }
@@ -177,18 +123,6 @@ const HeroText = styled.div`
     font-size:3rem;
 `;
 
-
-// const ShopButton = styled.button`
-//   background-color: #007bff;
-//   color: white;
-//   border: none;
-//   padding: 10px 20px;
-//   font-size: 18px;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   gap: 10px;
-// `;
 const StyledShopButton = styled.button`
   cursor: pointer;
   position: relative;
@@ -196,7 +130,6 @@ const StyledShopButton = styled.button`
   font-size: 18px;
 background: linear-gradient(45deg, #ffcccb, #ff1493);
 
- 
   border-radius: 34px;
   background-color: transparent;
   font-weight: 600;
