@@ -48,7 +48,7 @@ function ProductDetail({ addToCart, removeFromCart }) {
                                         </td>
                                     <td>Apple Laptop</td>
                                     <td>1</td>
-                                    <td>$3589</td>
+                                    <td>$3550</td>
                                 </tr>
                             </tbody>
                     </table>
