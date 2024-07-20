@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faShoppingCart, faBoxOpen, faClipboardList, faSignInAlt, faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faShoppingCart, faBoxOpen, faClipboardList, faSignInAlt, faCreditCard, faUser } from '@fortawesome/free-solid-svg-icons';
 import '@fontsource/roboto';
 
 const Navbar = ({ user, onLogout }) => {
@@ -66,6 +66,10 @@ const Navbar = ({ user, onLogout }) => {
         <Link to="/orders" className="text-white hover:text-gray-300 flex items-center">
           <FontAwesomeIcon icon={faClipboardList} className="mr-1" />
           Orders
+        </Link>
+        <Link to="/profile" className="text-white hover:text-gray-300 flex items-center">
+          <FontAwesomeIcon icon={faUser} className="mr-1" />
+          Profile
         </Link>
         {user ? (
           <div className="relative">

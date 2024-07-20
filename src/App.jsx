@@ -7,15 +7,15 @@ import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import Navbar from './components/Navbar';
+import Profile from './components/Profile';
 import ProductDetail from './components/ProductDetail';
 import ShoppingCart from './components/ShoppingCart';
 import RelatedProducts from './components/RelatedProducts';
-import Home from './components/home';
+import Home from './components/Home';
 import Checkout from './components/Checkout';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState([]);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -53,6 +53,17 @@ function App() {
     localStorage.removeItem('user');
     setUser(null);
   };
+  
+  function App() {
+    return (
+      <BrowserRouter>
+        <Navbar />
+        <Profile />
+      </BrowserRouter>
+    );
+  
+  }
+  
 
   return (
     <Router>
@@ -66,6 +77,7 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/register" element={<Register onRegister={handleRegister} />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/cart" element={
             <div className="flex flex-col lg:flex-row gap-12">
