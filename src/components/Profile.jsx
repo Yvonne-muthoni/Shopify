@@ -1,81 +1,149 @@
-import React, { useState } from 'react';
-
-const ProfileHeader = ({ profilePicture, name }) => (
-    <div className="flex flex-col items-center p-4">
-        <img
-            src={profilePicture}
-            alt="Profile"
-            className="w-32 h-32 rounded-full border-2 border-gray-300"
-        />
-        <h1 className="text-2xl font-semibold mt-4">{name}</h1>
-    </div>
-);
-
-const PersonalDetails = ({ email, phone, address, onEdit }) => (
-    <div className="p-4 bg-white shadow-md rounded-md my-4">
-        <h2 className="text-xl font-semibold mb-2">Personal Details</h2>
-        <p><strong>Email:</strong> {email}</p>
-        <p><strong>Phone:</strong> {phone}</p>
-        <p><strong>Address:</strong> {address}</p>
-        <button
-            onClick={onEdit}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-        >
-            Edit Profile
-        </button>
-    </div>
-);
-
-const AccountSettings = ({ onChangePassword }) => (
-    <div className="p-4 bg-white shadow-md rounded-md my-4">
-        <h2 className="text-xl font-semibold mb-2">Account Settings</h2>
-        <button
-            onClick={onChangePassword}
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-        >
-            Change Password
-        </button>
-    </div>
-);
-
-const OrderHistory = () => (
-    <div className="p-4 bg-white shadow-md rounded-md my-4">
-        <h2 className="text-xl font-semibold mb-2">Order History</h2>
-        {/* Order list component */}
-    </div>
-);
+import React, { useState, useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = () => {
-    const [user, setUser] = useState({
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        phone: '123-456-7890',
-        address: '123 Main St, City, Country',
-        profilePicture: '/path/to/profile-picture.jpg',
-    });
+  const [profileData, setProfileData] = useState({ username: '', name: '', email: '', phone: '' });
+  const [newPassword, setNewPassword] = useState('');
+  const [editing, setEditing] = useState(false);
+  const [profilePhoto, setProfilePhoto] = useState(null);
 
-    const handleEditProfile = () => {
-        // Logic to edit profile
-    };
+  useEffect(() => {
+    // Fetch user profile data from localStorage
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setProfileData(storedUser);
+    }
+  }, []);
 
-    const handleChangePassword = () => {
-        // Logic to change password
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData({ ...profileData, [name]: value });
+  };
 
-    return (
-        <div className="container mx-auto p-4 md:p-8">
-            <ProfileHeader profilePicture={user.profilePicture} name={user.name} />
-            <PersonalDetails
-                email={user.email}
-                phone={user.phone}
-                address={user.address}
-                onEdit={handleEditProfile}
+  const handlePasswordChange = (e) => {
+    setNewPassword(e.target.value);
+  };
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    setProfilePhoto(file);
+  };
+
+  const handleSave = async () => {
+    try {
+      // Update profile data in localStorage
+      localStorage.setItem('user', JSON.stringify(profileData));
+
+      if (newPassword) {
+        // Handle password update logic (e.g., API call)
+        console.log('Password updated:', newPassword);
+      }
+
+      if (profilePhoto) {
+        // Handle profile photo update logic (e.g., API call)
+        console.log('Profile photo updated:', profilePhoto.name);
+      }
+
+      toast.success('Profile updated successfully');
+      setEditing(false);
+    } catch (error) {
+      toast.error('Failed to update profile');
+    }
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-3xl font-semibold mb-6">Profile</h2>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium mb-2">Username:</label>
+        {editing ? (
+          <input
+            type="text"
+            name="username"
+            value={profileData.username}
+            onChange={handleChange}
+            className="border border-gray-300 rounded-lg p-3 w-full"
+          />
+        ) : (
+          <p className="text-gray-900">{profileData.username}</p>
+        )}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium mb-2">Name:</label>
+        {editing ? (
+          <input
+            type="text"
+            name="name"
+            value={profileData.name}
+            onChange={handleChange}
+            className="border border-gray-300 rounded-lg p-3 w-full"
+          />
+        ) : (
+          <p className="text-gray-900">{profileData.name}</p>
+        )}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium mb-2">Email:</label>
+        {editing ? (
+          <input
+            type="email"
+            name="email"
+            value={profileData.email}
+            onChange={handleChange}
+            className="border border-gray-300 rounded-lg p-3 w-full"
+          />
+        ) : (
+          <p className="text-gray-900">{profileData.email}</p>
+        )}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-medium mb-2">Phone Number:</label>
+        {editing ? (
+          <input
+            type="text"
+            name="phone"
+            value={profileData.phone}
+            onChange={handleChange}
+            className="border border-gray-300 rounded-lg p-3 w-full"
+          />
+        ) : (
+          <p className="text-gray-900">{profileData.phone}</p>
+        )}
+      </div>
+      {editing && (
+        <>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium mb-2">New Password:</label>
+            <input
+              type="password"
+              value={newPassword}
+              onChange={handlePasswordChange}
+              className="border border-gray-300 rounded-lg p-3 w-full"
             />
-            <AccountSettings onChangePassword={handleChangePassword} />
-            <OrderHistory />
-            {/* Additional components: Address Book, Payment Methods, Wishlist, etc. */}
-        </div>
-    );
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium mb-2">Profile Photo:</label>
+            <input
+              type="file"
+              onChange={handlePhotoChange}
+              className="border border-gray-300 rounded-lg p-3 w-full"
+            />
+          </div>
+        </>
+      )}
+      {editing ? (
+        <button onClick={handleSave} className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-colors">
+          Save
+        </button>
+      ) : (
+        <button onClick={() => setEditing(true)} className="bg-gray-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-gray-600 transition-colors">
+          Edit
+        </button>
+      )}
+      <ToastContainer />
+    </div>
+  );
 };
 
 export default Profile;

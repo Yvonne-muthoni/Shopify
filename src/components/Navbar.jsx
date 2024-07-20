@@ -75,7 +75,7 @@ const Navbar = ({ user, onLogout }) => {
           <div className="relative">
             <button onClick={toggleDropdown} className="text-white hover:text-gray-300 flex items-center">
               <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
-              {user.email}
+              {user.username}
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
@@ -94,6 +94,6 @@ const Navbar = ({ user, onLogout }) => {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

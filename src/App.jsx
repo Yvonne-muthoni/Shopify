@@ -53,17 +53,6 @@ function App() {
     localStorage.removeItem('user');
     setUser(null);
   };
-  
-  function App() {
-    return (
-      <BrowserRouter>
-        <Navbar />
-        <Profile />
-      </BrowserRouter>
-    );
-  
-  }
-  
 
   return (
     <Router>
