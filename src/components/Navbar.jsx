@@ -27,6 +27,12 @@ const Navbar = ({ user, onLogout }) => {
   const handleLogout = () => {
     onLogout();
     setDropdownOpen(false);
+    navigate('/login'); // Ensure redirection after logout
+  };
+
+  const handleManageProfile = () => {
+    navigate('/manage-profile');
+    setDropdownOpen(false);
   };
 
   return (
@@ -75,6 +81,9 @@ const Navbar = ({ user, onLogout }) => {
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                <button onClick={handleManageProfile} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  Manage Profile
+                </button>
                 <button onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                   Logout
                 </button>

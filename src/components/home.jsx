@@ -7,7 +7,6 @@ import img4 from '../Images/Image4.jpg';
 import img5 from '../Images/Image5.jpeg';
 import img8 from '../Images/Images8.jpeg';
 
-
 const Home = () => {
   return (
     <Container>
@@ -15,12 +14,10 @@ const Home = () => {
         <HeroText>
           <h1>Welcome to Shopify</h1>
           <p>~~~~</p>
-
           <p id='unique'>#1 <span id="unique2">Trending</span> in 🇰🇪</p>
           <StyledShopButton>
             <FaShoppingCart /> Shop Now
           </StyledShopButton>
-
         </HeroText>
         <HeroImage src="https://plus.unsplash.com/premium_photo-1683121246270-0bdc3a34b324?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero" />
       </HeroSection>
@@ -65,9 +62,9 @@ const Home = () => {
             <ProductImage src={img8} alt="Samsung Watch" />
             <ProductDetails>
               <h3>Samsung Watch</h3>
-              <p>1299</p>
+              <p>$1299</p>
               <Description>
-              Best of All Samsung Watches in the Market.
+                Best of All Samsung Watches in the Market.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
             </ProductDetails>
@@ -109,18 +106,20 @@ const HeroText = styled.div`
   font-family: 'Playwrite CU', sans-serif;
   h1 {
     font-size: 5rem; 
-    font-weight :bold;
+    font-weight: bold;
   }
 
-  #unique{
-    font-weight :bold;
-    font-family:'Dancing Script',Playwrite CU;
+  #unique {
+    font-weight: bold;
+    font-family: 'Dancing Script', Playwrite CU;
     font-size: 3rem;
   }
-    #unique2{
-    font-weight :bold;
-    color:red;
-    font-size:3rem;
+
+  #unique2 {
+    font-weight: bold;
+    color: red;
+    font-size: 3rem;
+  }
 `;
 
 const StyledShopButton = styled.button`
@@ -128,8 +127,7 @@ const StyledShopButton = styled.button`
   position: relative;
   padding: 10px 24px;
   font-size: 18px;
-background: linear-gradient(45deg, #ffcccb, #ff1493);
-
+  background: linear-gradient(45deg, #ffcccb, #ff1493);
   border-radius: 34px;
   background-color: transparent;
   font-weight: 600;
@@ -167,7 +165,6 @@ background: linear-gradient(45deg, #ffcccb, #ff1493);
     transform: scale(1);
   }
 `;
-
 
 const HeroImage = styled.img`
   width: 100%;
@@ -221,30 +218,6 @@ const CartIcon = styled.span`
   cursor: pointer;
   font-size: 20px;
   color: #007bff;
-`;
-
-const Rating = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-
-  input {
-    display: none;
-  }
-
-  label {
-    cursor: pointer;
-    svg {
-      fill: #ccc;
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-  input:checked ~ label svg,
-  input:hover ~ label svg {
-    fill: #ff9800;
-  }
 `;
 
 const LocationSection = styled.section`

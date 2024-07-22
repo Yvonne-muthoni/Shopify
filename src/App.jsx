@@ -13,6 +13,7 @@ import RelatedProducts from './components/RelatedProducts';
 import Home from './components/home';
 import Checkout from './components/Checkout';
 
+
 function App() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
@@ -44,43 +45,34 @@ function App() {
     setUser(user);
   };
 
-  const handleRegister = (newUser) => {
-    localStorage.setItem('user', JSON.stringify(newUser));
-    setUser(newUser);
-  };
-
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
   };
 
+  const handleRegister = (user) => {
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser(user);
+  };
+
   return (
     <Router>
-      <div>
-        <Navbar user={user} onLogout={handleLogout} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/register" element={<Register onRegister={handleRegister} />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} />
-          <Route path="/cart" element={
-            <div className="flex flex-col lg:flex-row gap-12">
-              <div className="lg:w-2/3">
-                <ProductDetail addToCart={addToCart} removeFromCart={removeFromCart} />
-                <RelatedProducts />
-              </div>
-              <div className="lg:w-1/3">
-                <ShoppingCart cart={cart} />
-              </div>
-            </div>
-          } />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </div>
+      <Navbar user={user} onLogout={handleLogout} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products addToCart={addToCart} />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/register" element={<Register onRegister={handleRegister} />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/product-detail/:id" element={<ProductDetail addToCart={addToCart} />} />
+        <Route path="/cart" element={<ShoppingCart cart={cart} removeFromCart={removeFromCart} />} />
+        <Route path="/related-products" element={<RelatedProducts />} />
+        <Route path="/checkout" element={<Checkout />} />
+        
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </Router>
   );
 }
