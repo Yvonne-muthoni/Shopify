@@ -25,8 +25,8 @@ const Register = ({ onRegister }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/auth/register', { // Update the URL to your backend
-        method: 'POST',
+      const response = await fetch('http://localhost:5000/auth/register', { 
+      
         headers: {
           'Content-Type': 'application/json',
         },
@@ -36,9 +36,10 @@ const Register = ({ onRegister }) => {
       const data = await response.json();
 
       if (response.ok) {
-        const user = { username, email };
+        const user = { username, email, phone, location };
+        localStorage.setItem('user', JSON.stringify(user)); 
         onRegister(user);
-        navigate('/'); // Redirect to homepage
+        navigate('/profile'); 
       } else {
         setError(data.message || 'Registration failed');
       }

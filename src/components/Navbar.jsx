@@ -27,7 +27,7 @@ const Navbar = ({ user, onLogout }) => {
   const handleLogout = () => {
     onLogout();
     setDropdownOpen(false);
-    navigate('/login'); // Ensure redirection after logout
+    navigate('/login'); 
   };
 
   const handleManageProfile = () => {
@@ -76,8 +76,16 @@ const Navbar = ({ user, onLogout }) => {
         {user ? (
           <div className="relative">
             <button onClick={toggleDropdown} className="text-white hover:text-gray-300 flex items-center">
-              <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
-              {user.email}
+              {user.profilePhoto ? (
+                <img
+                  src={user.profilePhoto}
+                  alt="Profile"
+                  style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
+                />
+              ) : (
+                <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
+              )}
+              {user.username}
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
