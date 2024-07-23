@@ -14,6 +14,7 @@ import Profile from './components/Profile';
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -24,16 +25,15 @@ function App() {
   }, []);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    setCart((prevCart) => [...prevCart, product]);
   };
 
-  const removeFromCart = (productName) => {
-    const index = cart.map((item) => item.name).lastIndexOf(productName);
-    if (index !== -1) {
-      const updatedCart = [...cart];
-      updatedCart.splice(index, 1);
-      setCart(updatedCart);
-    }
+  const removeFromCart = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
+  const removeLastFromCart = () => {
+    setCart((prevCart) => prevCart.slice(0, -1));
   };
 
   const handleLogin = (email) => {
@@ -62,14 +62,48 @@ function App() {
       <Navbar user={user} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products addToCart={addToCart} />} />
-        <Route path="/orders" element={<Orders />} />
+        <Route path="/products" element={<Products setSelectedProduct={setSelectedProduct} />} />
+        <Route 
+          path="/products/:productId" 
+          element={
+            <ProductDetail
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+              setSelectedProduct={setSelectedProduct}
+              product={selectedProduct}
+            />
+          } 
+        />
+        <Route path="/checkout" element={<Checkout cart={cart} />} />
+        <Route path="/orders" element={<Orders cart={cart} />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register onRegister={handleRegister} />} />
-        <Route path="/product-detail/:id" element={<ProductDetail addToCart={addToCart} />} />
-        <Route path="/cart" element={<ShoppingCart cart={cart} removeFromCart={removeFromCart} />} />
+        <Route 
+          path="/cart" 
+          element={
+            <div className="flex flex-col lg:flex-row gap-12">
+              <div className="lg:w-2/3">
+                {selectedProduct && (
+                  <ProductDetail
+                    addToCart={addToCart}
+                    removeFromCart={removeFromCart}
+                    setSelectedProduct={setSelectedProduct}
+                    product={selectedProduct}
+                  />
+                )}
+                <RelatedProducts />
+              </div>
+              <div className="lg:w-1/3">
+                <ShoppingCart 
+                  cart={cart} 
+                  removeFromCart={removeFromCart} 
+                  removeLastFromCart={removeLastFromCart}
+                />
+              </div>
+            </div>
+          } 
+        />
         <Route path="/related-products" element={<RelatedProducts />} />
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="/manage-profile" element={<Profile onUpdateProfile={handleUpdateProfile} />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

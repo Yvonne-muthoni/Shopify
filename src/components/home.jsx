@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import { FaShoppingCart } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import img1 from '../Images/Image1.jpg';
-import img4 from '../Images/Image4.jpg';
-import img5 from '../Images/Image5.jpeg';
-import img8 from '../Images/Images8.jpeg';
 
 const Home = () => {
   return (
@@ -13,64 +9,120 @@ const Home = () => {
       <HeroSection>
         <HeroText>
           <h1>Welcome to Shopify</h1>
-          <p>~~~~</p>
           <p id='unique'>#1 <span id="unique2">Trending</span> in 🇰🇪</p>
           <StyledShopButton>
             <FaShoppingCart /> Shop Now
           </StyledShopButton>
+
         </HeroText>
-        <HeroImage src="https://plus.unsplash.com/premium_photo-1683121246270-0bdc3a34b324?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero" />
+        <HeroImage src="https://images.unsplash.com/photo-1496147539180-13929f8aa03a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero" />
       </HeroSection>
 
       <ProductShowcase>
-        <h2 className='text-3xl text-center mt-20 mb-10'>FEATURED PRODUCTS</h2>
+        <h2 id='featured'>FEATURED PRODUCTS</h2>
         <ProductGrid>
           <ProductCard>
-            <ProductImage src={img1} alt="Apple Laptop" />
+            <ProductImage src="https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-experience-for-entire-family-hero_09152020_big.jpg.large.jpg" alt="Product 1" />
             <ProductDetails>
-              <h3>Apple Laptop</h3>
-              <p>$2099</p>
+              <h3>APPLE WATCH</h3>
+              <p>$200.00</p>
               <Description>
-                Best of All Apple Laptops in the Market.
+                A high-quality product that meets all your needs and exceeds expectations.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
+              <Rating>
+                <input type="radio" id="star-1" name="star-radio" value="star-1" />
+                <label htmlFor="star-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2" name="star-radio" value="star-1" />
+                <label htmlFor="star-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3" name="star-radio" value="star-1" />
+                <label htmlFor="star-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4" name="star-radio" value="star-1" />
+                <label htmlFor="star-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5" name="star-radio" value="star-1" />
+                <label htmlFor="star-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+              </Rating>
             </ProductDetails>
           </ProductCard>
           <ProductCard>
-            <ProductImage src={img4} alt="Apple Watch" />
+            <ProductImage src="https://appleservicecentre.co.ke/wp-content/uploads/2024/04/Apple-Watch-series-6-44mm.jpg" alt="Product 2" />
             <ProductDetails>
-              <h3>Apple Watch</h3>
-              <p>$599</p>
+              <h3>ORIMO SMARTWATCH</h3>
+              <p>$660.00</p>
               <Description>
-                Best of All Apple Watches in the Market.
+                Enjoy the best performance and style with this amazing product.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
+              <Rating>
+                <input type="radio" id="star-1-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-1-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-2-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-3-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-4-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-5-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+              </Rating>
             </ProductDetails>
           </ProductCard>
           <ProductCard>
-            <ProductImage src={img5} alt="Samsung Laptop" />
+            <ProductImage src="https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.slideshow-medium.jpg" alt="Product 2" />
             <ProductDetails>
-              <h3>Samsung Laptop</h3>
-              <p>$3099</p>
+              <h3>APPLE WATCH:Water Resistant</h3>
+              <p>$300.00</p>
               <Description>
-                Best of All Samsung Laptop in the Market.
+                Enjoy the best performance and style with this amazing product.
                 <CartIcon><FaShoppingCart /></CartIcon>
               </Description>
-            </ProductDetails>
-          </ProductCard>
-          <ProductCard>
-            <ProductImage src={img8} alt="Samsung Watch" />
-            <ProductDetails>
-              <h3>Samsung Watch</h3>
-              <p>$1299</p>
-              <Description>
-                Best of All Samsung Watches in the Market.
-                <CartIcon><FaShoppingCart /></CartIcon>
-              </Description>
+              <Rating>
+                <input type="radio" id="star-1-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-1-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-2-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-3-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-4-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-5-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+              </Rating>
             </ProductDetails>
           </ProductCard>
         </ProductGrid>
       </ProductShowcase>
+      
 
       <LocationSection>
         <iframe
@@ -103,34 +155,45 @@ const HeroText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  font-family: 'Playwrite CU', sans-serif;
-  h1 {
-    font-size: 5rem; 
-    font-weight: bold;
+    font-family: 'Dancing Script',Playwrite CU;
+     h1 {
+    font-size: 8rem; 
+    font-weight :bold;
   }
 
-  #unique {
-    font-weight: bold;
-    font-family: 'Dancing Script', Playwrite CU;
+  #unique{
+    font-weight :bold;
+    font-family:'Dancing Script',Playwrite CU;
     font-size: 3rem;
   }
-
-  #unique2 {
-    font-weight: bold;
-    color: red;
-    font-size: 3rem;
-  }
+    #unique2{
+    font-weight :bold;
+    color:red;
+    font-size:3rem;
 `;
 
+
+// const ShopButton = styled.button`
+//   background-color: #007bff;
+//   color: white;
+//   border: none;
+//   padding: 10px 20px;
+//   font-size: 18px;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+// `;
 const StyledShopButton = styled.button`
   cursor: pointer;
   position: relative;
   padding: 10px 24px;
-  font-size: 18px;
-  background: linear-gradient(45deg, #ffcccb, #ff1493);
+  font-size: 25px;
+  font-weight: 800;
   border-radius: 34px;
+  background: linear-gradient(45deg, #000000, #ffffff); /* Black to white gradient */
+  color: white; /* Default text color */
   background-color: transparent;
-  font-weight: 600;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   display: flex;
@@ -145,9 +208,9 @@ const StyledShopButton = styled.button`
     width: 50px;
     height: 50px;
     border-radius: inherit;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
     transform: scale(0);
     z-index: -1;
-    background-color: rgb(193, 163, 98);
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
@@ -156,7 +219,7 @@ const StyledShopButton = styled.button`
   }
 
   &:hover {
-    color: #ffd1dc;
+    color: black; /* Text color on hover */
     transform: scale(1.1);
     box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
   }
@@ -165,6 +228,8 @@ const StyledShopButton = styled.button`
     transform: scale(1);
   }
 `;
+
+
 
 const HeroImage = styled.img`
   width: 100%;
@@ -177,6 +242,11 @@ const ProductShowcase = styled.section`
   padding: 50px 20px;
   background-color: #f9f9f9;
   text-align: center;
+  #featured{
+ font-family:'Dancing Script',Playwrite CU;
+ font-size: 50px;
+ margin-bottom:20px;
+  }
 `;
 
 const ProductGrid = styled.div`
@@ -218,6 +288,30 @@ const CartIcon = styled.span`
   cursor: pointer;
   font-size: 20px;
   color: #007bff;
+`;
+
+const Rating = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  input {
+    display: none;
+  }
+
+  label {
+    cursor: pointer;
+    svg {
+      fill: #ccc;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  input:checked ~ label svg,
+  input:hover ~ label svg {
+    fill: #ff9800;
+  }
 `;
 
 const LocationSection = styled.section`
