@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { HeartIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '/home/shelvin/developments/Phase4/Project/Ecommerce/Shopify/src/assets/shopi2.avif'; 
 
 function RelatedProducts({ onProductSelect }) {
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -30,7 +29,7 @@ function RelatedProducts({ onProductSelect }) {
 }
 
 const Background = styled.div`
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${backgroundImage});
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
   background-size: cover;
   background-position: center;
   padding: 8px;
@@ -71,7 +70,7 @@ function ProductDetail({ product, addToCart, removeLastFromCart }) {
         </div>
         <div className="md:w-1/2">
           <p className="text-4xl font-bold mb-4 text-gray-800">${product.price}</p>
-          <p className="text-lg mb-8 text-gray-700">{product.description}</p> {/* Added description section */}
+          <p className="text-lg mb-8 text-gray-700">{product.description}</p> 
           <div className="flex gap-4 mb-8">
             {colors.map((color) => (
               <button
