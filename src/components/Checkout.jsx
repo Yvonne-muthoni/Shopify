@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
   const [formData, setFormData] = useState({
     shipping: { name: '', address: '', city: '', state: '', zip: '' },
     billing: { name: '', address: '', city: '', state: '', zip: '' },
@@ -31,12 +31,12 @@ const Checkout = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/');
+    navigate('/orders', { state: { cart } });
   };
 
   return (
     <Container>
-      <h2>Checkout Page</h2>
+      <Title>Checkout</Title>
       <Form onSubmit={handleSubmit}>
         <SectionGroup>
           <Section>
@@ -60,6 +60,20 @@ const Checkout = () => {
               placeholder="City"
               value={formData.shipping.city}
               onChange={(e) => handleChange('shipping', 'city', e.target.value)}
+              required
+            />
+            <Input
+              type="text"
+              placeholder="State"
+              value={formData.shipping.state}
+              onChange={(e) => handleChange('shipping', 'state', e.target.value)}
+              required
+            />
+            <Input
+              type="text"
+              placeholder="Zip Code"
+              value={formData.shipping.zip}
+              onChange={(e) => handleChange('shipping', 'zip', e.target.value)}
               required
             />
           </Section>
@@ -86,26 +100,6 @@ const Checkout = () => {
               onChange={(e) => handleChange('billing', 'city', e.target.value)}
               required
             />
-          </Section>
-        </SectionGroup>
-        <SectionGroup>
-          <Section>
-            <Input
-              type="text"
-              placeholder="State"
-              value={formData.shipping.state}
-              onChange={(e) => handleChange('shipping', 'state', e.target.value)}
-              required
-            />
-            <Input
-              type="text"
-              placeholder="Zip Code"
-              value={formData.shipping.zip}
-              onChange={(e) => handleChange('shipping', 'zip', e.target.value)}
-              required
-            />
-          </Section>
-          <Section>
             <Input
               type="text"
               placeholder="State"
@@ -148,10 +142,10 @@ const Checkout = () => {
         </Section>
         <OrderSummary>
           <h3>Order Summary</h3>
-          {/* Replace with dynamic order summary */}
-          <p>Product 1: $200.00</p>
-          <p>Product 2: $300.00</p>
-          <p>Total: $500.00</p>
+          {cart.map((item, index) => (
+            <p key={index}>{item.name}: ${item.price.toFixed(2)}</p>
+          ))}
+          <Total>Total: ${cart.reduce((total, item) => total + item.price, 0).toFixed(2)}</Total>
         </OrderSummary>
         <Button type="submit">Place Order</Button>
       </Form>
@@ -170,10 +164,20 @@ const Checkout = () => {
 
 const Container = styled.div`
   padding: 50px;
-  background-color: #17A2B8;
+  background-color: #333333;
   font-family: Arial, sans-serif;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const Title = styled.h2`
+  text-align: center;
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  font-family: 'Dancing Script', cursive;
 `;
 
 const Form = styled.form`
@@ -199,12 +203,14 @@ const Section = styled.div`
 
   h3 {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 20px;
+    color: #555;
+    text-align: center;
   }
 `;
 
 const Input = styled.input`
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -218,12 +224,19 @@ const OrderSummary = styled.div`
 
   h3 {
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 20px;
+    color: #555;
   }
 
   p {
     margin: 5px 0;
   }
+`;
+
+const Total = styled.p`
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
 `;
 
 const Button = styled.button`
@@ -232,8 +245,9 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
+  margin-top: 20px;
 
   &:hover {
     background-color: #0056b3;
@@ -253,14 +267,26 @@ const Modal = styled.div`
 `;
 
 const ModalContent = styled.div`
-  background-color: #ffc0cb; /* baby pink background */
-  padding: 20px;
+  background-color: #fff;
+  padding: 30px;
   border-radius: 8px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #666;
+  }
 `;
 
 const CloseButton = styled.button`
-  margin-top: 20px;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
