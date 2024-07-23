@@ -64,7 +64,7 @@ const Profile = ({ onUpdateProfile }) => {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    backgroundImage: 'url(https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1549816115-fe3dbef80a23?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
     backgroundSize: 'cover',
   };
 
