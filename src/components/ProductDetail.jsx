@@ -29,7 +29,7 @@ function RelatedProducts({ onProductSelect }) {
 }
 
 const Background = styled.div`
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: rgba(255, 255, 255, 0.8); 
   background-size: cover;
   background-position: center;
   padding: 8px;

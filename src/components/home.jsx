@@ -1,15 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
 
   const handleShopNow = () => {
-    navigate('/products');
+    navigate('/products'); 
   };
 
   return (
@@ -18,9 +17,10 @@ const Home = () => {
         <HeroText>
           <h1>Welcome to Shopify</h1>
           <p id='unique'>#1 <span id="unique2">Trending</span> in 🇰🇪</p>
-          <StyledShopButton onClick={handleShopNow}>
+          <StyledShopButton onClick={handleShopNow}> 
             <FaShoppingCart /> Shop Now
           </StyledShopButton>
+
         </HeroText>
         <HeroImage src="https://images.unsplash.com/photo-1496147539180-13929f8aa03a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero" />
       </HeroSection>
@@ -28,9 +28,108 @@ const Home = () => {
       <ProductShowcase>
         <h2 id='featured'>FEATURED PRODUCTS</h2>
         <ProductGrid>
-          {/* Add your product cards here */}
+          <ProductCard>
+            <ProductImage src="https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-experience-for-entire-family-hero_09152020_big.jpg.large.jpg" alt="Product 1" />
+            <ProductDetails>
+              <h3>APPLE WATCH</h3>
+              <p>$200.00</p>
+              <Description>
+                A high-quality product that meets all your needs and exceeds expectations.
+                <CartIcon><FaShoppingCart /></CartIcon>
+              </Description>
+              <Rating>
+                <input type="radio" id="star-1" name="star-radio" value="star-1" />
+                <label htmlFor="star-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2" name="star-radio" value="star-1" />
+                <label htmlFor="star-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3" name="star-radio" value="star-1" />
+                <label htmlFor="star-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4" name="star-radio" value="star-1" />
+                <label htmlFor="star-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5" name="star-radio" value="star-1" />
+                <label htmlFor="star-5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+              </Rating>
+            </ProductDetails>
+          </ProductCard>
+          <ProductCard>
+            <ProductImage src="https://appleservicecentre.co.ke/wp-content/uploads/2024/04/Apple-Watch-series-6-44mm.jpg" alt="Product 2" />
+            <ProductDetails>
+              <h3>ORIMO SMARTWATCH</h3>
+              <p>$660.00</p>
+              <Description>
+                Enjoy the best performance and style with this amazing product.
+                <CartIcon><FaShoppingCart /></CartIcon>
+              </Description>
+              <Rating>
+                <input type="radio" id="star-1-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-1-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-2-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-3-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-4-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-5-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+              </Rating>
+            </ProductDetails>
+          </ProductCard>
+          <ProductCard>
+            <ProductImage src="https://www.apple.com/newsroom/images/product/watch/standard/Apple_watch-series7_hero_09142021_big.jpg.slideshow-medium.jpg" alt="Product 2" />
+            <ProductDetails>
+              <h3>APPLE WATCH:Water Resistant</h3>
+              <p>$300.00</p>
+              <Description>
+                Enjoy the best performance and style with this amazing product.
+                <CartIcon><FaShoppingCart /></CartIcon>
+              </Description>
+              <Rating>
+                <input type="radio" id="star-1-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-1-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-2-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-3-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-4-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5-2" name="star-radio-2" value="star-1" />
+                <label htmlFor="star-5-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+              </Rating>
+            </ProductDetails>
+          </ProductCard>
         </ProductGrid>
       </ProductShowcase>
+      
 
       <LocationSection>
         <iframe
@@ -63,25 +162,35 @@ const HeroText = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  font-family: 'Dancing Script', 'Playfair Display', cursive;
-  h1 {
+    font-family: 'Dancing Script',Playwrite CU;
+     h1 {
     font-size: 8rem; 
-    font-weight: bold;
+    font-weight :bold;
   }
 
-  #unique {
-    font-weight: bold;
-    font-family: 'Dancing Script', 'Playfair Display', cursive;
+  #unique{
+    font-weight :bold;
+    font-family:'Dancing Script',Playwrite CU;
     font-size: 3rem;
   }
-
-  #unique2 {
-    font-weight: bold;
-    color: red;
-    font-size: 3rem;
-  }
+    #unique2{
+    font-weight :bold;
+    color:red;
+    font-size:3rem;
 `;
 
+
+// const ShopButton = styled.button`
+//   background-color: #007bff;
+//   color: white;
+//   border: none;
+//   padding: 10px 20px;
+//   font-size: 18px;
+//   cursor: pointer;
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+// `;
 const StyledShopButton = styled.button`
   cursor: pointer;
   position: relative;
@@ -127,6 +236,8 @@ const StyledShopButton = styled.button`
   }
 `;
 
+
+
 const HeroImage = styled.img`
   width: 100%;
   height: 100%;
@@ -138,10 +249,10 @@ const ProductShowcase = styled.section`
   padding: 50px 20px;
   background-color: #f9f9f9;
   text-align: center;
-  #featured {
-    font-family: 'Dancing Script', 'Playfair Display', cursive;
-    font-size: 50px;
-    margin-bottom: 20px;
+  #featured{
+ font-family:'Dancing Script',Playwrite CU;
+ font-size: 50px;
+ margin-bottom:20px;
   }
 `;
 
