@@ -8,7 +8,7 @@ function Products({ setSelectedProduct }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/products');
+        const response = await axios.get('http://127.0.0.1:5555/products');
         setProducts(response.data);
       } catch (error) {
         console.error("There was an error fetching the products!", error);
